@@ -133,17 +133,17 @@ function barBeep() {
 
 /*Ajouté par dono*/
 function blink() {
-    $("#blinkIndicator").addClass('blink');
+    $("#beatIndicator").addClass('blink');
     setTimeout(function(){
-        $("#blinkIndicator").removeClass('blink');
+        $("#beatIndicator").removeClass('blink');
     },60)
 
 }
 
 /*Ajouté par dono*/
 function barBlink() {
-    $("#blinkIndicator").addClass('blink');
-    $("#blinkIndicator").removeClass('blink');
+    $("#beatIndicator").addClass('blink');
+    $("#beatIndicator").removeClass('blink');
 }
 
 function beatReset()
