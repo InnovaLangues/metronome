@@ -4,26 +4,6 @@
     margin-top: -100px;
 }
 
-#metronome {
-    background-color: #ccc;
-}
-
-.btn.set-bpm {
-    width: 56px;
-}
-
-.btn.bpm-contol {
-    width: 146px;
-}
-
-#blinkIndicatorContainer {
-    position: relative;
-    margin-top: 10px;
-}
-
-#blinkIndicator {
-    position: absolute;
-}
 
 .blink {
     background-color: #f00;
