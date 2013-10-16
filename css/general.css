@@ -4,16 +4,14 @@
     margin-top: -100px;
 }
 
-
-.blink {
-    background-color: #f00;
-    width: 100%;
-    height: 60px;
+#beatIndicator.blink {
+    background-color: #0f0;
 }
 
 #beatIndicator {
-    font-size: 45px;
-    height: 60px;
-    line-height: 60px;
-    text-align: center;
+    height: 50px;
+    border: 1px solid #000;
+    border-radius: 500px;
+    margin-bottom: 25px;
+    margin-top: 20px;
 }
