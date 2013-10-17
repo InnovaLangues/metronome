@@ -64,8 +64,21 @@ $(document).ready(function() {
 
 function beat() {
     timeoutId = setTimeout("beat()", (oneMin / bpm));
-    beep();
-    blink();
+    var option = $('input[name=options]:checked').val();
+
+    switch(option)
+    {
+        case 'beep-blink':
+            beep();
+            blink();
+            break;
+        case 'beep':
+            beep();
+            break;
+        case 'blink':
+            blink();
+            break;
+    }
 }
 
 function beep() {

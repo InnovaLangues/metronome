@@ -1,10 +1,8 @@
 <html>
     <head>
         <title>HTML5 Metronome</title>
-        <link href="js/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="css/general.css" rel="stylesheet" type="text/css" />
-        <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
-        <script type="text/javascript" src="js/metronome.js"></script>
     </head>
     <body>
         <div class="container">
@@ -36,7 +34,7 @@
                                 <form id="settings">
                                     <div class="row">
                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <input type="button" name="bpmPlus" id="bpmPlus" class="btn btn-default btn-block" value="<" />
+                                            <input type="button" name="bpmMinus" id="bpmMinus" class="btn btn-default btn-block" value="<" />
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                             <div class="form-group">
@@ -44,7 +42,23 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <input type="button" name="bpmMinus" id="bpmMinus" class="btn btn-default btn-block" value=">" />
+                                            <input type="button" name="bpmPlus" id="bpmPlus" class="btn btn-default btn-block" value=">" />
+                                        </div>
+                                    </div>
+                                    <div class="row text-center">
+                                        <div class="btn-group" data-toggle="buttons">
+                                            <label class="btn btn-primary active">
+                                                <input type="radio" name="options" value="beep-blink" checked=true />
+                                                Beep and Blink
+                                            </label>
+                                            <label class="btn btn-primary">
+                                                <input type="radio" name="options" value="beep" />
+                                                Beep only
+                                            </label>
+                                            <label class="btn btn-primary">
+                                                <input type="radio" name="options" value="blink" />
+                                                Blink only
+                                            </label>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -180,5 +194,8 @@
                 <source src="sound/beep-7.mp3" />
             </audio>
         </div>
+        <script src="js/jquery-1.10.2.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="js/metronome.js"></script>
     </body>
 </html>
