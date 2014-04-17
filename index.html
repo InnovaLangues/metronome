@@ -1,201 +1,230 @@
 <html>
-    <head>
-        <title>HTML5 Metronome</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-        <link href="css/general.css" rel="stylesheet" type="text/css" />
-    </head>
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-lg-offset-3 col-md-offset-3 col-sm-offset-3">
-                    <div class="row">
-                        <h1>Metronome</h1>
-                        <div class="well clearfix">
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div id="beatIndicatorContainer" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div id="beatIndicator"></div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <input type="button" name="start" id="start" value="Start" class="btn btn-lg btn-block btn-primary"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="button" name="stop" id="stop" value="Stop" class="btn btn-lg btn-default btn-block"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-8">
-                                <h2 class="text-center">Beats Per Minute:</h2>
-                                <hr>
-                                <form id="settings">
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <input type="button" name="bpmMinus" id="bpmMinus" class="btn btn-default btn-block" value="<" />
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <div class="form-group">
-                                                <input type="text" class="form-control text-center" name="bpm" id="bpm" value="100" />
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                                            <input type="button" name="bpmPlus" id="bpmPlus" class="btn btn-default btn-block" value=">" />
-                                        </div>
-                                    </div>
-                                    <div class="row text-center">
-                                        <div class="btn-group" data-toggle="buttons">
-                                            <label class="btn btn-primary active">
-                                                <input type="radio" name="options" value="beep-blink" checked=true />
-                                                Beep and Blink
-                                            </label>
-                                            <label class="btn btn-primary">
-                                                <input type="radio" name="options" value="beep" />
-                                                Beep only
-                                            </label>
-                                            <label class="btn btn-primary">
-                                                <input type="radio" name="options" value="blink" />
-                                                Blink only
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                            <div class="form-group">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                            <div class="form-group">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                            <div class="form-group">
-                                                <input type="button" name="bpm-20" value="20" class="btn btn-default btn-block set-bpm"/>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                            <div class="form-group">
-                                                <input type="button" name="bpm-30" value="30" class="btn btn-default btn-block set-bpm"/>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                            <div class="form-group">
-                                                <input type="button" name="bpm-40" value="40" class="btn btn-default btn-block set-bpm"/>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                            <div class="form-group">
-                                                <input type="button" name="bpm-50" value="50" class="btn btn-default btn-block set-bpm"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                            <div class="form-group">
-                                                <input type="button" name="bpm-60" value="60" class="btn btn-default btn-block set-bpm"/>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                            <div class="form-group">
-                                                <input type="button" name="bpm-70" value="70" class="btn btn-default btn-block set-bpm"/>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                            <div class="form-group">
-                                                <input type="button" name="bpm-80" value="80" class="btn btn-default btn-block set-bpm"/>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                            <div class="form-group">
-                                                <input type="button" name="bpm-90" value="90" class="btn btn-default btn-block set-bpm"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                            <div class="form-group">
-                                                <input type="button" name="bpm-100" value="100" class="btn btn-default btn-block set-bpm"/>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                            <div class="form-group">
-                                                <input type="button" name="bpm-110" value="110" class="btn btn-default btn-block set-bpm"/>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                            <div class="form-group">
-                                                <input type="button" name="bpm-120" value="120" class="btn btn-default btn-block set-bpm"/>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                            <div class="form-group">
-                                                <input type="button" name="bpm-130" value="130" class="btn btn-default btn-block set-bpm"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                            <div class="form-group">
-                                                <input type="button" name="bpm-140" value="140" class="btn btn-default btn-block set-bpm"/>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                            <div class="form-group">
-                                                <input type="button" name="bpm-150" value="150" class="btn btn-default btn-block set-bpm"/>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                            <div class="form-group">
-                                                <input type="button" name="bpm-160" value="160" class="btn btn-default btn-block set-bpm"/>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                            <div class="form-group">
-                                                <input type="button" name="bpm-170" value="170" class="btn btn-default btn-block set-bpm"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                            <div class="form-group">
-                                                <input type="button" name="bpm-180" value="180" class="btn btn-default btn-block set-bpm"/>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                            <div class="form-group">
-                                                <input type="button" name="bpm-190" value="190" class="btn btn-default btn-block set-bpm"/>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                            <div class="form-group">
-                                                <input type="button" name="bpm-200" value="200" class="btn btn-default btn-block set-bpm"/>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-                                            <div class="form-group">
-                                                <input type="button" name="bpm-210" value="210" class="btn btn-default btn-block set-bpm"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 Metronome</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/general.css" rel="stylesheet" type="text/css" />
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!--<div class="row">
+            <div class="col-md-4">
+                <h1>Metronome</h1>
+            </div>
+        </div>-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="well clearfix my">
+                    <div class="col-md-4">
+                        <div class="row">
+                            <div id="beatIndicatorContainer" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div id="beatIndicator"></div>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <input type="button" name="start" id="start" value="Start" class="btn sample btn-lg btn-block btn-sample"/>
+                                </div>
+                                <div class="form-group">
+                                    <input type="button" name="stop" id="stop" value="Stop" class="btn btn-lg btn-default btn-block"/>
+                                </div>
+                                <hr/>
+                                <h5 class="selected-title">Current sound : Electronic kick</h5>
+                                <div class="dropdown">
+                                    <button type="button" id="btn-title" class="btn btn-default">Choose sound</button>
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                        <span class="sr-only"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li>
+                                            <a data-id="beep-7" href="#">Beep</a>
+                                        </li>
+                                        <li>
+                                            <a data-id="el-kick" href="#">Electronic kick</a>
+                                        </li>
+                                        <li>
+                                            <a data-id="el-sn" href="#">Electronic snare</a>
+                                        </li>
+                                        <li>
+                                            <a data-id="el-hh" href="#">Electronic charley</a>
+                                        </li>
+                                         <li>
+                                            <a data-id="woodblock" href="#">Woodblock</a>
+                                        </li>
+                                        <li>
+                                            <a data-id="seiko-high" href="#">Seiko métronome</a>
+                                        </li>
+                                        <li>
+                                            <a data-id="stick" href="#">Drum's stick</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <hr/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <h2 class="text-center">Beats Per Minute:</h2>
+                        <hr>
+                        <form id="settings">
+                            <div class="row">
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <input type="button" name="bpmMinus" id="bpmMinus" class="btn btn-sample btn-block" value="<" />
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control text-center" name="bpm" id="bpm" value="100" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                                    <input type="button" name="bpmPlus" id="bpmPlus" class="btn btn-sample btn-block" value=">" />
+                                </div>
+                            </div>
+                            <div class="row text-center">
+                                <div class="btn-group" data-toggle="buttons">
+                                    <label class="btn btn-sample active">
+                                        <input type="radio" name="options" value="beep-blink" checked=true />
+                                        Beep and Blink
+                                    </label>
+                                    <label class="btn btn-sample">
+                                        <input type="radio" name="options" value="beep" />
+                                        Beep only
+                                    </label>
+                                    <label class="btn btn-sample">
+                                        <input type="radio" name="options" value="blink" />
+                                        Blink only
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group"></div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    <div class="form-group"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                    <div class="form-group">
+                                        <input type="button" name="bpm-20" value="20" class="btn btn-default btn-block set-bpm"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                    <div class="form-group">
+                                        <input type="button" name="bpm-30" value="30" class="btn btn-default btn-block set-bpm"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                    <div class="form-group">
+                                        <input type="button" name="bpm-40" value="40" class="btn btn-default btn-block set-bpm"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                    <div class="form-group">
+                                        <input type="button" name="bpm-50" value="50" class="btn btn-default btn-block set-bpm"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                    <div class="form-group">
+                                        <input type="button" name="bpm-60" value="60" class="btn btn-default btn-block set-bpm"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                    <div class="form-group">
+                                        <input type="button" name="bpm-70" value="70" class="btn btn-default btn-block set-bpm"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                    <div class="form-group">
+                                        <input type="button" name="bpm-80" value="80" class="btn btn-default btn-block set-bpm"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                    <div class="form-group">
+                                        <input type="button" name="bpm-90" value="90" class="btn btn-default btn-block set-bpm"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                    <div class="form-group">
+                                        <input type="button" name="bpm-100" value="100" class="btn btn-default btn-block set-bpm"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                    <div class="form-group">
+                                        <input type="button" name="bpm-110" value="110" class="btn btn-default btn-block set-bpm"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                    <div class="form-group">
+                                        <input type="button" name="bpm-120" value="120" class="btn btn-default btn-block set-bpm"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                    <div class="form-group">
+                                        <input type="button" name="bpm-130" value="130" class="btn btn-default btn-block set-bpm"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                    <div class="form-group">
+                                        <input type="button" name="bpm-140" value="140" class="btn btn-default btn-block set-bpm"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                    <div class="form-group">
+                                        <input type="button" name="bpm-150" value="150" class="btn btn-default btn-block set-bpm"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                    <div class="form-group">
+                                        <input type="button" name="bpm-160" value="160" class="btn btn-default btn-block set-bpm"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                    <div class="form-group">
+                                        <input type="button" name="bpm-170" value="170" class="btn btn-default btn-block set-bpm"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                    <div class="form-group">
+                                        <input type="button" name="bpm-180" value="180" class="btn btn-default btn-block set-bpm"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                    <div class="form-group">
+                                        <input type="button" name="bpm-190" value="190" class="btn btn-default btn-block set-bpm"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                    <div class="form-group">
+                                        <input type="button" name="bpm-200" value="200" class="btn btn-default btn-block set-bpm"/>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                                    <div class="form-group">
+                                        <input type="button" name="bpm-210" value="210" class="btn btn-default btn-block set-bpm"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-        <div id="audioHide">
-            <audio id="beepOne" preload="auto" controls="controls">
-                <source src="sound/beep-7.wav" />
-                <source src="sound/beep-7.mp3" />
-            </audio>
-        </div>
-        <script src="js/jquery-1.10.2.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+
         <script type="text/javascript" src="js/metronome.js"></script>
-    </body>
-</html>
+    </div>
+</body>
+    </html>
