@@ -28,7 +28,7 @@ body{
 
 hr {    
     color : #b4ca38;
-    background-color: #b4ca38;
+    background-color: #b4ca38; /*#b4ca38*/
     height: 1px;
     border: 0;
 }
@@ -58,3 +58,14 @@ hr {
     position : relative;
     /*margin-top : 20px;*/
 }
+
+.img-container{
+    text-align: center;
+
+}
+
+.img-container img{
+    width: 80px;
+    height: 80px;
+}
+
