@@ -3,7 +3,7 @@
 var timeoutId = 0;
 var timeoutClearId = 0;
 var oneMin = 60000; // How many milliseconds
-var bpm = 100;
+var bpm = 70;
 var bpb = 4;
 var beatCount = 1;
 var left = 1;
@@ -14,6 +14,9 @@ var bufferLoader;
 var source;
 
 $(document).ready(function() {
+
+    $("#bpm").val(bpm);
+
     $(".set-bpm").click(function() {
         var currentValue = parseFloat($(this).val());
         $("#bpm").val(currentValue);
@@ -71,7 +74,7 @@ $(document).ready(function() {
 
     bufferLoader = new BufferLoader(
             context,
-            ['sounds/el-kick.wav'],
+            ['sounds/woodblock.wav'],
             finishedLoading
         );
     bufferLoader.load();
