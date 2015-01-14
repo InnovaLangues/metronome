@@ -59,7 +59,12 @@ function scheduler() {
     intervalID = window.setTimeout(scheduler, lookahead);
 }
 
+// control accuracy
+var start = 0;
+var interval = 0;
+
 function play() {
+    start = Date.now();
     isPlaying = !isPlaying;
     if (isPlaying) { // start playing
         current16thNote = 0;
@@ -69,6 +74,10 @@ function play() {
 }
 
 function bleep(){
+    var now = Date.now();
+    interval = now - start;
+    start = now;
+    console.log(interval);
     source = audioContext.createBufferSource();
     source.buffer = audio.buffer;
     source.connect(audioContext.destination);
@@ -140,6 +149,7 @@ $(document).ready(function() {
         var rId = $(this).data('id');
         if (rId && 'undefined' !== rId) {
             var url = 'sounds/' + rId + '.wav';
+            console.log(url);
             bufferLoader = new BufferLoader(audioContext, [url], finishedLoading);
             bufferLoader.load();
         }
@@ -154,12 +164,13 @@ function finishedLoading(bufferList) {
 }
 
 function BufferLoader(context, urlList, callback) {
-    this.audioContext = audioContext;
+    this.audioContext = context;
     this.urlList = urlList;
     this.onload = callback;
     this.bufferList = new Array();
     this.loadCount = 0;
 }
+
 BufferLoader.prototype.loadBuffer = function(url, index) {
     // Load buffer asynchronously
     var request = new XMLHttpRequest();
@@ -170,14 +181,26 @@ BufferLoader.prototype.loadBuffer = function(url, index) {
         // Asynchronously decode the audio file data in request.response
         loader.audioContext.decodeAudioData(request.response, function(buffer) {
             if (!buffer) {
+                console.log('error decoding file data: ' + url);
+                return;
+            }
+            loader.bufferList[index] = buffer;
+            if (++loader.loadCount == loader.urlList.length) loader.onload(loader.bufferList);
+        }, function(e) {
+            console.log('decodeAudioData error');
+            console.log(e);
+        });
+        /*loader.audioContext.decodeAudioData(request.response).then(function(buffer) {
+			if (!buffer) {
                 alert('error decoding file data: ' + url);
                 return;
             }
             loader.bufferList[index] = buffer;
             if (++loader.loadCount == loader.urlList.length) loader.onload(loader.bufferList);
-        }, function(error) {
-            console.error('decodeAudioData error', error);
-        });
+		}, function(e){
+			console.log(e);
+		});*/
+        
     }
     request.onerror = function() {
         alert('BufferLoader: XHR error');
