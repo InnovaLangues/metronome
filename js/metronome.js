@@ -128,18 +128,19 @@ $(document).ready(function() {
             tempo = 500;
         }
     });
-    $("#start").click(function() {
+    $("#play").click(function() {
         if (isPlaying) {
-            return false;
+            source.stop();
+            clearTimeout(intervalID);
+            isPlaying = false;
         }
-        play();
-        isPlaying = true;
+        else{
+            play();
+            isPlaying = true;
+        }
     });
-    $("#stop").click(function() {
-        source.stop();
-        clearTimeout(intervalID);
-        isPlaying = false;
-    });
+    
+    
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
     audioContext = new AudioContext();
     bufferLoader = new BufferLoader(audioContext, ['sounds/woodblock.wav'], finishedLoading);
@@ -153,7 +154,7 @@ $(document).ready(function() {
             bufferLoader = new BufferLoader(audioContext, [url], finishedLoading);
             bufferLoader.load();
         }
-        $('h5.selected-title').text('Current sound : ' + $(this).text());
+        $('span.selected-title').text($(this).text());
     });
 });
 
@@ -190,23 +191,13 @@ BufferLoader.prototype.loadBuffer = function(url, index) {
             console.log('decodeAudioData error');
             console.log(e);
         });
-        /*loader.audioContext.decodeAudioData(request.response).then(function(buffer) {
-			if (!buffer) {
-                alert('error decoding file data: ' + url);
-                return;
-            }
-            loader.bufferList[index] = buffer;
-            if (++loader.loadCount == loader.urlList.length) loader.onload(loader.bufferList);
-		}, function(e){
-			console.log(e);
-		});*/
         
-    }
+    };
     request.onerror = function() {
         alert('BufferLoader: XHR error');
-    }
+    };
     request.send();
-}
+};
 BufferLoader.prototype.load = function() {
     for (var i = 0; i < this.urlList.length; ++i) this.loadBuffer(this.urlList[i], i);
-}
+};

@@ -1,0 +1,51 @@
+/* Customize container */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 550px;
+    }
+}
+
+.btn {
+    background-color: #b4ca38;
+    color :#9c2a61;
+}
+
+
+
+body{
+    color: #b4ca38;
+}
+
+hr {    
+    color : #b4ca38;
+    background-color: #b4ca38; /*#b4ca38*/
+    height: 1px;
+    border: 0;
+}
+
+#beatIndicator.blink {
+    background-color: #f00;
+}
+
+#beatIndicator {
+    height: 50px;
+    width: 50px;
+    margin: 0 auto;
+    border: 1px solid #b4ca38;
+    border-radius: 50%;
+    margin-top: 20px;
+}
+
+.my{
+    background-color: #9c2a61;
+    box-shadow: 8px 8px 12px #ccc;
+    border : 5px solid #b4ca38;
+    margin-top : 25px;
+    padding-bottom: 15px;
+}
+
+
+.my-btn-container{
+    margin-top: 28px;
+}
+
