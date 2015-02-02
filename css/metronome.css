@@ -1,13 +1,18 @@
 /* Customize container */
 @media (min-width: 1024px) {
     .container {
-        max-width: 550px;
+        max-width: 300px;
     }
 }
 
 .btn {
     background-color: #b4ca38;
     color :#9c2a61;
+}
+
+.btn-play{
+    height: 55px;
+    width: 100%;
 }
 
 
@@ -46,6 +51,6 @@ hr {
 
 
 .my-btn-container{
-    margin-top: 28px;
+    margin-top: 3px;
+    padding: 15px;
 }
-
